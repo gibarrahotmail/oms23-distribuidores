@@ -21,7 +21,7 @@ import com.omsdanone.distribuidores.repository.LogGlobalRepository;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@CrossOrigin(origins = {"http://localhost:9092", "http://localhost:4200"})
+@CrossOrigin
 @Tag(name = "LogGlobal", description = "LogGlobal management endpoints")
 @RestController
 @RequestMapping("/api")
