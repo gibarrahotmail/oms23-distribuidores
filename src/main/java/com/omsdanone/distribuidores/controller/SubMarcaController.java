@@ -20,7 +20,7 @@ import com.omsdanone.distribuidores.repository.SubMarcaRepository;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@CrossOrigin(origins = {"http://localhost:9092", "http://localhost:4200"})
+@CrossOrigin    //(origins = {"http://localhost:9092", "http://localhost:4200"})
 @Tag(name = "SubMarca", description = "SubMarca management endpoints")
 @RestController
 @RequestMapping("/api")

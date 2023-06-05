@@ -20,7 +20,7 @@ import com.omsdanone.distribuidores.repository.DistribuidorRepository;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@CrossOrigin(origins = {"http://localhost:9092", "http://localhost:4200"})
+@CrossOrigin  //(origins = {"http://localhost:9092", "http://localhost:4200"})
 @Tag(name = "Distribuidor", description = "Distribuidor management endpoints")
 @RestController
 @RequestMapping("/api")

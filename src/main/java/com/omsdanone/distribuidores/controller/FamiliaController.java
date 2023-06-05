@@ -21,7 +21,7 @@ import com.omsdanone.distribuidores.repository.FamiliaRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 
-@CrossOrigin(origins = {"http://localhost:9092", "http://localhost:4200"})
+@CrossOrigin    //(origins = {"http://localhost:9092", "http://localhost:4200"})
 @Tag(name = "Familia", description = "Familia management endpoints")
 @RestController
 @RequestMapping("/api")
