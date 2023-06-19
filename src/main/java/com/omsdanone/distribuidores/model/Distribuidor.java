@@ -14,19 +14,24 @@ public class Distribuidor {
   private boolean m_TransportesPropios;
   private Short m_HorasEntrega;
   private String m_Email;
-  private String m_EmailCC1;
-  private String m_EmailCC2;
+  //private String m_EmailCC1;
+  //private String m_EmailCC2;
   private Byte m_PedidosXSemana;
   private Float m_PcExtraXPedido;
   private String m_SalesGroupId;
+
+  private Short m_RolDePedidoId;
+  private String m_CorteHorarioId;
+  private Byte m_TipoUnidadID;
+
 
   public Distribuidor ()
   { }
 
   public Distribuidor (Short p_DistribuidorID, Short p_RegionID, String p_NumeroCliente, String p_Contacto, 
     String p_Nombre, String p_Direccion, Short p_CiudadID, Byte p_CeDisID, Float p_Credito, Boolean p_Activo, 
-    Boolean p_TransportesPropios, Short p_HorasEntrega, String p_Email, String p_EmailCC1, String p_EmailCC2, 
-    Byte p_PedidosXSemana, Float p_PcExtraXPedido, String p_SalesGroupId  )
+    Boolean p_TransportesPropios, Short p_HorasEntrega, String p_Email, //String p_EmailCC1, String p_EmailCC2, 
+    Byte p_PedidosXSemana, Float p_PcExtraXPedido, String p_SalesGroupId)
   {
     m_DistribuidorID = p_DistribuidorID;
     m_RegionID = p_RegionID;
@@ -41,8 +46,8 @@ public class Distribuidor {
     m_TransportesPropios = p_TransportesPropios;
     m_HorasEntrega = p_HorasEntrega;
     m_Email = p_Email;
-    m_EmailCC1 = p_EmailCC1;
-    m_EmailCC2 = p_EmailCC2;
+    //m_EmailCC1 = p_EmailCC1;
+    //m_EmailCC2 = p_EmailCC2;
     m_PedidosXSemana = p_PedidosXSemana;
     m_PcExtraXPedido = p_PcExtraXPedido;
     m_SalesGroupId = p_SalesGroupId;
@@ -165,7 +170,7 @@ public class Distribuidor {
     this.m_Email = value;
   }
 
-  public String getEmailCC1()
+  /* public String getEmailCC1()
   {
     return this.m_EmailCC1;
   }
@@ -181,7 +186,7 @@ public class Distribuidor {
   public void setEmailCC2(String value)
   {
     this.m_EmailCC2 = value;
-  }
+  } */
 
   public Byte getPedidosXSemana()
   {
@@ -210,5 +215,32 @@ public class Distribuidor {
     this.m_SalesGroupId = value;
   }
 
+
+  public Short getRolDePedidoId()
+  {
+    return this.m_RolDePedidoId;
+  }
+  public void setRolDePedidoId(Short value)
+  {
+    this.m_RolDePedidoId = value;
+  }
+
+  public String getCorteHorarioId()
+  {
+    return this.m_CorteHorarioId;
+  }
+  public void setCorteHorarioId(String value)
+  {
+    this.m_CorteHorarioId = value;
+  }
+
+  public Byte getTipoUnidadID()
+  {
+    return this.m_TipoUnidadID;
+  }
+  public void setTipoUnidadID(Byte value)
+  {
+    this.m_TipoUnidadID = value;
+  }
 
 }

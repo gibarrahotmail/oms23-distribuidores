@@ -46,23 +46,20 @@ public class DistribuidorRepository {
     .withProcedureName(uspName);
 
     MapSqlParameterSource inParams = new MapSqlParameterSource()
-    .addValue("p_RegionID", distribuidor.getRegionID())
     .addValue("p_NumeroCliente", distribuidor.getNumeroCliente())
     .addValue("p_Contacto", distribuidor.getContacto())
     .addValue("p_Nombre", distribuidor.getNombre())
     .addValue("p_Direccion", distribuidor.getDireccion())
-    .addValue("p_CiudadID", distribuidor.getCiudadID())
-    .addValue("p_CeDisID", distribuidor.getCeDisID())
     .addValue("p_Credito", distribuidor.getCredito())
     .addValue("p_Activo", distribuidor.getActivo())
     .addValue("p_TransportesPropios", distribuidor.getTransportesPropios())
     .addValue("p_HorasEntrega", distribuidor.getHorasEntrega())
     .addValue("p_email", distribuidor.getEmail())
-    .addValue("p_emailCC1", distribuidor.getEmailCC1())
-    .addValue("p_emailCC2", distribuidor.getEmailCC2())
     .addValue("p_PedidosXSemana", distribuidor.getPedidosXSemana())
     .addValue("p_pcExtraXPedido", distribuidor.getPcExtraXPedido())
-    .addValue("p_SalesGroupId", distribuidor.getSalesGroupId())
+    .addValue("p_RolDePedidoId", distribuidor.getRolDePedidoId())
+    .addValue("p_CorteHorarioId", distribuidor.getCorteHorarioId())
+    .addValue("p_TipoUnidadID", distribuidor.getTipoUnidadID())
     .addValue("p_UsuarioID", usuarioID);
 
     if (distribuidor.getDistribuidorID() > 0) {

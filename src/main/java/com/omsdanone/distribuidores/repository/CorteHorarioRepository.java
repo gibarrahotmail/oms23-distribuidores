@@ -12,29 +12,28 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
 import com.omsdanone.distribuidores.model.RepositoryResult;
-import com.omsdanone.distribuidores.model.Marca;
+import com.omsdanone.distribuidores.model.CorteHorario;
 
 @Repository
-public class MarcaRepository {  // implements IMarca 
+public class CorteHorarioRepository {
   @Autowired
   private JdbcTemplate jdbcTemplate;
 
   //@Override
   @SuppressWarnings("unchecked")
-  public List<Marca> findById(Byte marcaid, Byte companiaid) {
+  public List<CorteHorario> findById(String corteHorarioId) {
     try {
       SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-      .withProcedureName("usp_SelMarca")
-      .returningResultSet("marcas", 
-        BeanPropertyRowMapper.newInstance(Marca.class));
+      .withProcedureName("usp_SelCorteHorario")
+      .returningResultSet("cortehorarios", 
+        BeanPropertyRowMapper.newInstance(CorteHorario.class));
 
       MapSqlParameterSource inParams = new MapSqlParameterSource()
-      .addValue("p_MarcaID", marcaid)
-      .addValue("p_CompaniaID", companiaid);
+      .addValue("p_CorteHorarioId", corteHorarioId);
 
       Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
       
-      return (List<Marca>) simpleJdbcCallResult.get("marcas");
+      return (List<CorteHorario>) simpleJdbcCallResult.get("cortehorarios");
     } 
     catch (IncorrectResultSizeDataAccessException e) {
       return null;
@@ -42,41 +41,41 @@ public class MarcaRepository {  // implements IMarca
   }
 
   //@Override
-  public RepositoryResult insert(Marca marca, Short usuarioID) {
-    String uspName = (marca.getMarcaID() == 0 ? "usp_InsMarca" : "usp_UpdMarca");
+  public RepositoryResult insert(CorteHorario cortehorario, Short usuarioID) {
+    String uspName = "usp_InsCorteHorario"; //( == 0 ? "usp_InsCorteHorario" : "usp_UpdCorteHorario");
 
     SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
     .withProcedureName(uspName);
 
     MapSqlParameterSource inParams = new MapSqlParameterSource()
-    .addValue("p_Nombre", marca.getNombre())
-    .addValue("p_CompaniaID", marca.getCompaniaID())
-    .addValue("p_Codigo", marca.getCodigo())
+    .addValue("p_CorteHorarioId", cortehorario.getCorteHorarioId())
+    .addValue("p_Descripcion", cortehorario.getDescripcion())
     .addValue("p_UsuarioID", usuarioID);
 
-    if (marca.getMarcaID() > 0) {
-      inParams.addValue("p_MarcaID", marca.getMarcaID());
-    }
+    //if ( > 0) {
+    //  inParams
+    //} 
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
 
-    marca.setMarcaID ( (byte)( (Number) simpleJdbcCallResult.get("out_Id") ).shortValue() ); 
+    //cortehorario.set ((void) simpleJdbcCallResult.get("out_Id")); 
 
     return new RepositoryResult(
       1, 
       "OK!", 
       (Integer) simpleJdbcCallResult.get("#update-count-1"), 
-      marca.getMarcaID().longValue() 
+      //cortehorario.get().longValue() 
+      (long)1
     );
   }
 
   //@Override
-  public RepositoryResult deleteById(Byte marcaid, Short usuarioID) {
+  public RepositoryResult deleteById(String corteHorarioId, Short usuarioID) {
     SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-    .withProcedureName("usp_DelMarca");
+    .withProcedureName("usp_DelCorteHorario");
 
     MapSqlParameterSource inParams = new MapSqlParameterSource()
-    .addValue("p_MarcaID", marcaid)
+    .addValue("p_CorteHorarioId", corteHorarioId)
     .addValue("p_UsuarioID", usuarioID);
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
@@ -92,5 +91,5 @@ public class MarcaRepository {  // implements IMarca
 
   }
 
-}
 
+}

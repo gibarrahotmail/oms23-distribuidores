@@ -1,5 +1,4 @@
 package com.omsdanone.distribuidores.controller;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,37 +14,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.omsdanone.distribuidores.model.RepositoryResult;
-import com.omsdanone.distribuidores.model.Compania;
-import com.omsdanone.distribuidores.repository.CompaniaRepository;
+import com.omsdanone.distribuidores.model.CorteHorario;
+import com.omsdanone.distribuidores.repository.CorteHorarioRepository;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @CrossOrigin
-@Tag(name = "Compania", description = "Compania management endpoints")
+@Tag(name = "CorteHorario", description = "CorteHorario management endpoints")
 @RestController
 @RequestMapping("/api")
-public class CompaniaController {
-
+public class CorteHorarioController {
   @Autowired
-  CompaniaRepository companiaRepository;
+  CorteHorarioRepository cortehorarioRepository;
 
-  @GetMapping("/compania/{companiaid}")
-  public ResponseEntity<List<Compania>> getCompaniaById
-  (@PathVariable("companiaid") Byte companiaid) {
-    List<Compania> companias = companiaRepository.findById(companiaid);
+  @GetMapping("/cortehorario/{cortehorarioid}")
+  public ResponseEntity<List<CorteHorario>> getCorteHorarioById
+  (@PathVariable("cortehorarioid") String cortehorarioid) {
+    List<CorteHorario> cortehorarios = cortehorarioRepository.findById(cortehorarioid);
    
-    if (companias != null) {
-      return new ResponseEntity<>(companias, HttpStatus.OK);
+    if (cortehorarios != null) {
+      return new ResponseEntity<>(cortehorarios, HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
   }
 
-  /*
-  @PostMapping("/compania/{usuarioid}")
-  public ResponseEntity<RepositoryResult> createCompania (@RequestBody Compania compania, @PathVariable("usuarioid") Short usuarioid) {
+
+  @PostMapping("/cortehorario/{usuarioid}")
+  public ResponseEntity<RepositoryResult> createCorteHorario (@RequestBody CorteHorario cortehorario, 
+  @PathVariable("usuarioid") Short usuarioid) {
     try {
-      RepositoryResult rresult = companiaRepository.insert(compania, usuarioid);
+      RepositoryResult rresult = cortehorarioRepository.insert(cortehorario, usuarioid);
          
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {
@@ -55,16 +54,17 @@ public class CompaniaController {
   }
 
 
-  @DeleteMapping("/compania/{companiaid}/{usuarioid}")
-  public ResponseEntity<RepositoryResult> deletecompania(@PathVariable("companiaid") Byte companiaid, @PathVariable("usuarioid") Short usuarioid) {
+  @DeleteMapping("/cortehorario/{cortehorarioid}/{usuarioid}")
+  public ResponseEntity<RepositoryResult> deletecortehorario(@PathVariable("cortehorarioid") String cortehorarioid, 
+  @PathVariable("usuarioid") Short usuarioid) {
     try {
-      RepositoryResult rresult = companiaRepository.deleteById(companiaid, usuarioid);
+      RepositoryResult rresult = cortehorarioRepository.deleteById(cortehorarioid, usuarioid);
 
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {
       System.out.println(e);
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-  }   
-  */     
+  }      
+
 }

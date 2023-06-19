@@ -29,10 +29,10 @@ public class MarcaController {
   @Autowired
   MarcaRepository marcaRepository;
 
-  @GetMapping("/marca/{marcaid}")
+  @GetMapping("/marca/{marcaid}/{companiaid}")
   public ResponseEntity<List<Marca>> getMarcaById
-  (@PathVariable("marcaid") Byte marcaid) {
-    List<Marca> marcas = marcaRepository.findById(marcaid);
+  (@PathVariable("marcaid") Byte marcaid, @PathVariable("companiaid") Byte companiaid) {
+    List<Marca> marcas = marcaRepository.findById(marcaid, companiaid);
    
     if (marcas != null) {
       return new ResponseEntity<>(marcas, HttpStatus.OK);

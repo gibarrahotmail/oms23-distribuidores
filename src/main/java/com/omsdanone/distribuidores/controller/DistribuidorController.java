@@ -71,5 +71,6 @@ public class DistribuidorController {
       return new ResponseEntity<>(new RepositoryResult(500, e.getMessage(), 0, Long.valueOf("0")), 
         HttpStatus.INTERNAL_SERVER_ERROR);
     }
-  }      
+  }
+  
 }
