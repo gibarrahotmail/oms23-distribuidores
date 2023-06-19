@@ -20,6 +20,8 @@ public class Producto {
   private String m_Submarca;
   private String m_Familia;
   private String m_Descrip;
+
+  private String m_Innovacion;
   
   public Producto ()
   { }
@@ -195,6 +197,15 @@ public class Producto {
   public void setDescrip(String value)
   {
     this.m_Descrip = value;
+  }
+
+  public String getInnovacion()
+  {
+    return this.m_Innovacion;
+  }
+  public void setInnovacion(String value)
+  {
+    this.m_Innovacion = value;
   }
 
 }

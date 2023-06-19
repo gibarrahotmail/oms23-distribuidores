@@ -2,13 +2,13 @@ package com.omsdanone.distribuidores.model;
 
 public class Distribuidor {
   private Short m_DistribuidorID;
-  private Short m_RegionID;
+  //private Short m_RegionID;
   private String m_NumeroCliente;
   private String m_Contacto;
   private String m_Nombre;
   private String m_Direccion;
-  private Short m_CiudadID;
-  private Byte m_CeDisID;
+  //private Short m_CiudadID;
+  //private Byte m_CeDisID;
   private Float m_Credito;
   private boolean m_Activo;
   private boolean m_TransportesPropios;
@@ -24,23 +24,26 @@ public class Distribuidor {
   private String m_CorteHorarioId;
   private Byte m_TipoUnidadID;
 
+  private String m_RolDePedido;
+  private String m_TipoUnidad;
 
   public Distribuidor ()
   { }
 
-  public Distribuidor (Short p_DistribuidorID, Short p_RegionID, String p_NumeroCliente, String p_Contacto, 
-    String p_Nombre, String p_Direccion, Short p_CiudadID, Byte p_CeDisID, Float p_Credito, Boolean p_Activo, 
+  public Distribuidor (Short p_DistribuidorID, //Short p_RegionID, Short p_CiudadID, Byte p_CeDisID, 
+    String p_NumeroCliente, String p_Contacto, 
+    String p_Nombre, String p_Direccion, Float p_Credito, Boolean p_Activo, 
     Boolean p_TransportesPropios, Short p_HorasEntrega, String p_Email, //String p_EmailCC1, String p_EmailCC2, 
     Byte p_PedidosXSemana, Float p_PcExtraXPedido, String p_SalesGroupId)
   {
     m_DistribuidorID = p_DistribuidorID;
-    m_RegionID = p_RegionID;
+    //m_RegionID = p_RegionID;
     m_NumeroCliente = p_NumeroCliente;
     m_Contacto = p_Contacto;
     m_Nombre = p_Nombre;
     m_Direccion = p_Direccion;
-    m_CiudadID = p_CiudadID;
-    m_CeDisID = p_CeDisID;
+    //m_CiudadID = p_CiudadID;
+    //m_CeDisID = p_CeDisID;
     m_Credito = p_Credito;
     m_Activo = p_Activo;
     m_TransportesPropios = p_TransportesPropios;
@@ -62,14 +65,14 @@ public class Distribuidor {
     this.m_DistribuidorID = value;
   }
 
-  public Short getRegionID()
+  /*public Short getRegionID()
   {
     return this.m_RegionID;
   }
   public void setRegionID(Short value)
   {
     this.m_RegionID = value;
-  }
+  }*/
 
   public String getNumeroCliente()
   {
@@ -107,7 +110,7 @@ public class Distribuidor {
     this.m_Direccion = value;
   }
 
-  public Short getCiudadID()
+  /*public Short getCiudadID()
   {
     return this.m_CiudadID;
   }
@@ -123,7 +126,7 @@ public class Distribuidor {
   public void setCeDisID(Byte value)
   {
     this.m_CeDisID = value;
-  }
+  }*/
 
   public Float getCredito()
   {
@@ -243,4 +246,22 @@ public class Distribuidor {
     this.m_TipoUnidadID = value;
   }
 
+
+  public String getRolDePedido()
+  {
+    return this.m_RolDePedido;
+  }
+  public void setRolDePedido(String value)
+  {
+    this.m_RolDePedido = value;
+  }  
+
+  public String getTipoUnidad()
+  {
+    return this.m_TipoUnidad;
+  }
+  public void setTipoUnidad(String value)
+  {
+    this.m_TipoUnidad = value;
+  }  
 }

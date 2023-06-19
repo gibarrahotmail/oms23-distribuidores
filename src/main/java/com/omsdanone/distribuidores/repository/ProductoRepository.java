@@ -66,6 +66,7 @@ public class ProductoRepository {  // implements IProducto
     .addValue("p_FamiliaID", producto.getFamiliaID())
     .addValue("p_BarCode", producto.getBarCode())
     .addValue("p_PesoXPieza", producto.getPesoXPieza())
+    .addValue("p_Innovacion", producto.getInnovacion())
     .addValue("p_UsuarioID", usuarioID);
 
     if (producto.getProductoID() > 0) {
