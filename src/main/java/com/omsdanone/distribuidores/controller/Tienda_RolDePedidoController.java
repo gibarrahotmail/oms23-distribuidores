@@ -20,7 +20,7 @@ import com.omsdanone.distribuidores.repository.Tienda_RolDePedidoRepository;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@CrossOrigin(origins = "http://localhost:9092")
+@CrossOrigin
 @Tag(name = "Tienda_RolDePedido", description = "Tienda_RolDePedido management endpoints")
 @RestController
 @RequestMapping("/api")
