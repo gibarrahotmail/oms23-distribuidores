@@ -18,7 +18,7 @@ public class Distribuidor {
   //private String m_EmailCC2;
   private Byte m_PedidosXSemana;
   private Float m_PcExtraXPedido;
-  private String m_SalesGroupId;
+  //private String m_SalesGroupId;
 
   private Short m_RolDePedidoId;
   private String m_CorteHorarioId;
@@ -34,7 +34,7 @@ public class Distribuidor {
     String p_NumeroCliente, String p_Contacto, 
     String p_Nombre, String p_Direccion, Float p_Credito, Boolean p_Activo, 
     Boolean p_TransportesPropios, Short p_HorasEntrega, String p_Email, //String p_EmailCC1, String p_EmailCC2, 
-    Byte p_PedidosXSemana, Float p_PcExtraXPedido, String p_SalesGroupId)
+    Byte p_PedidosXSemana, short p_RolDePedidoId, String p_CorteHorarioId)
   {
     m_DistribuidorID = p_DistribuidorID;
     //m_RegionID = p_RegionID;
@@ -52,8 +52,9 @@ public class Distribuidor {
     //m_EmailCC1 = p_EmailCC1;
     //m_EmailCC2 = p_EmailCC2;
     m_PedidosXSemana = p_PedidosXSemana;
-    m_PcExtraXPedido = p_PcExtraXPedido;
-    m_SalesGroupId = p_SalesGroupId;
+    //m_SalesGroupId = "";
+    m_RolDePedidoId = p_RolDePedidoId;
+    m_CorteHorarioId = p_CorteHorarioId;
   }
 
   public Short getDistribuidorID()
@@ -209,14 +210,14 @@ public class Distribuidor {
     this.m_PcExtraXPedido = value;
   }
 
-  public String getSalesGroupId()
+  /* public String getSalesGroupId()
   {
     return this.m_SalesGroupId;
   }
   public void setSalesGroupId(String value)
   {
     this.m_SalesGroupId = value;
-  }
+  } */
 
 
   public Short getRolDePedidoId()

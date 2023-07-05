@@ -20,7 +20,7 @@ public class DistribuidorRepository {
   private JdbcTemplate jdbcTemplate;
 
   @SuppressWarnings("unchecked")
-  public List<Distribuidor> findById(Short distribuidorid) {
+  public List<Distribuidor> findById(Short distribuidorid, Boolean soloActivos) {
     try {
       SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
       .withProcedureName("usp_SelDistribuidor")
@@ -28,7 +28,8 @@ public class DistribuidorRepository {
         BeanPropertyRowMapper.newInstance(Distribuidor.class));
 
       MapSqlParameterSource inParams = new MapSqlParameterSource()
-      .addValue("p_DistribuidorID", distribuidorid);
+      .addValue("p_DistribuidorID", distribuidorid)
+      .addValue("p_SoloActivos", soloActivos);
 
       Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
       
