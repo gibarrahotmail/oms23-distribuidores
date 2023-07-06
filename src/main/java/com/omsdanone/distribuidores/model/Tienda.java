@@ -18,6 +18,7 @@ public class Tienda {
   private Short m_CadenaFormatoId;
   private String m_CadenaComercial;
   private String m_CadenaFormato;
+  private String m_TipoDeRol;
 
   public Tienda ()
   { }
@@ -198,4 +199,13 @@ public class Tienda {
     this.m_CadenaFormato = value;
   }
 
+
+  public String getTipoDeRol()
+  {
+    return this.m_TipoDeRol;
+  }
+  public void setTipoDeRol(String value)
+  {
+    this.m_TipoDeRol = value;
+  }  
 }

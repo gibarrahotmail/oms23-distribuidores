@@ -5,6 +5,7 @@ public class CadenaComercial {
   private String m_Codigo;
   private String m_Nombre;
   private boolean m_Activa;
+  private Integer m_Cantidad;
 
   public CadenaComercial ()
   { }
@@ -53,4 +54,12 @@ public class CadenaComercial {
     this.m_Activa = value;
   }
 
+  public Integer getCantidad()
+  {
+    return this.m_Cantidad;
+  }
+  public void setCantidad(Integer value)
+  {
+    this.m_Cantidad = value;
+  }
 }
