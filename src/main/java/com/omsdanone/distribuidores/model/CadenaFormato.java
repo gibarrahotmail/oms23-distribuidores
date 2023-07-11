@@ -7,6 +7,7 @@ public class CadenaFormato {
   private boolean m_Activa;
   private Short m_CadenaComercialId;
   private Byte m_CanalId;
+  private Integer m_Cantidad;
 
   public CadenaFormato ()
   { }
@@ -76,4 +77,12 @@ public class CadenaFormato {
     this.m_CanalId = value;
   }
 
+  public Integer getCantidad()
+  {
+    return this.m_Cantidad;
+  }
+  public void setCantidad(Integer value)
+  {
+    this.m_Cantidad = value;
+  }
 }
