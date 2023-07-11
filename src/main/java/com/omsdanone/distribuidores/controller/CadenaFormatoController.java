@@ -29,10 +29,11 @@ public class CadenaFormatoController {
   @Autowired
   CadenaFormatoRepository cadenaformatoRepository;
 
-  @GetMapping("/cadenaformato/{cadenaformatoid}")
+  @GetMapping("/cadenaformato/{cadenaformatoid}/{cadenacomercialid}")
   public ResponseEntity<List<CadenaFormato>> getCadenaFormatoById
-  (@PathVariable("cadenaformatoid") Short cadenaformatoid) {
-    List<CadenaFormato> cadenaformatos = cadenaformatoRepository.findById(cadenaformatoid);
+  (@PathVariable("cadenaformatoid") Short cadenaformatoid, 
+    @PathVariable("cadenacomercialid") Short cadenacomercialid) {
+    List<CadenaFormato> cadenaformatos = cadenaformatoRepository.findById(cadenaformatoid, cadenacomercialid);
    
     if (cadenaformatos != null) {
       return new ResponseEntity<>(cadenaformatos, HttpStatus.OK);
@@ -65,7 +66,9 @@ public class CadenaFormatoController {
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {
       System.out.println(e);
-      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+      
+      return new ResponseEntity<>(new RepositoryResult(500, e.getMessage(), 0, Long.valueOf("0")), 
+        HttpStatus.INTERNAL_SERVER_ERROR);  
     }
   }      
 

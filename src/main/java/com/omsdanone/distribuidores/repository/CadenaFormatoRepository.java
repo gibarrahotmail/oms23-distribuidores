@@ -21,7 +21,7 @@ public class CadenaFormatoRepository {
 
   //@Override
   @SuppressWarnings("unchecked")
-  public List<CadenaFormato> findById(Short cadenaformatoid) {
+  public List<CadenaFormato> findById(Short cadenaformatoid, Short cadenacomercialid) {
     try {
       SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
       .withProcedureName("usp_SelCadenaFormato")
@@ -29,7 +29,8 @@ public class CadenaFormatoRepository {
         BeanPropertyRowMapper.newInstance(CadenaFormato.class));
 
       MapSqlParameterSource inParams = new MapSqlParameterSource()
-      .addValue("p_CadenaFormatoId", cadenaformatoid);
+      .addValue("p_CadenaFormatoId", cadenaformatoid)
+      .addValue("p_CadenaComercialId", cadenacomercialid);
 
       Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
       

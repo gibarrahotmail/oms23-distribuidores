@@ -8,6 +8,7 @@ public class CadenaFormato {
   private Short m_CadenaComercialId;
   private Byte m_CanalId;
   private Integer m_Cantidad;
+  private String m_CadenaComercial;
 
   public CadenaFormato ()
   { }
@@ -85,4 +86,15 @@ public class CadenaFormato {
   {
     this.m_Cantidad = value;
   }
+
+
+  public String getCadenaComercial()
+  {
+    return this.m_CadenaComercial;
+  }
+  public void setCadenaComercial(String value)
+  {
+    this.m_CadenaComercial = value;
+  }
+
 }
