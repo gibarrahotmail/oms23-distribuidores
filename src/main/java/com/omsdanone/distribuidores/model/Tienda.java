@@ -19,6 +19,10 @@ public class Tienda {
   private String m_CadenaComercial;
   private String m_CadenaFormato;
   private String m_TipoDeRol;
+  private Short m_RolDepedidoId1;
+  private Short m_RolDepedidoId2;
+  private Byte m_UnidadId1;
+  private Byte m_UnidadId2;
 
   public Tienda ()
   { }
@@ -207,5 +211,44 @@ public class Tienda {
   public void setTipoDeRol(String value)
   {
     this.m_TipoDeRol = value;
+  }
+
+  
+  public Short getRolDepedidoId1()
+  {
+    return this.m_RolDepedidoId1;
+  }
+  public void setRolDepedidoId1(Short value)
+  {
+    this.m_RolDepedidoId1 = value;
+  }
+
+  public Short getRolDepedidoId2()
+  {
+    return this.m_RolDepedidoId2;
+  }
+  public void setRolDepedidoId2(Short value)
+  {
+    this.m_RolDepedidoId2 = value;
+  }
+
+
+  public Byte getUnidadId1()
+  {
+    return this.m_UnidadId1;
+  }
+  public void setUnidadId1(Byte value)
+  {
+    this.m_UnidadId1 = value;
+  }
+
+  public Byte getUnidadId2()
+  {
+    return this.m_UnidadId2;
+  }
+  public void setUnidadId2(Byte value)
+  {
+    this.m_UnidadId2 = value;
   }  
+
 }

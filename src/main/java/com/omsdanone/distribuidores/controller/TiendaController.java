@@ -29,10 +29,11 @@ public class TiendaController {
   @Autowired
   TiendaRepository tiendaRepository;
 
-  @GetMapping("/tienda/{tiendaid}/{cadenacomercialid}")
+  @GetMapping("/tienda/{tiendaid}/{cadenacomercialid}/{cadenaformatoid}")
   public ResponseEntity<List<Tienda>> getTiendaById
-  (@PathVariable("tiendaid") Integer tiendaid, @PathVariable("cadenacomercialid") Short cadenacomercialid) {
-    List<Tienda> tiendas = tiendaRepository.findById(tiendaid, cadenacomercialid);
+  (@PathVariable("tiendaid") Integer tiendaid, @PathVariable("cadenacomercialid") Short cadenacomercialid,
+    @PathVariable("cadenaformatoid") Short cadenaformatoid) {
+    List<Tienda> tiendas = tiendaRepository.findById(tiendaid, cadenacomercialid, cadenaformatoid);
    
     if (tiendas != null) {
       return new ResponseEntity<>(tiendas, HttpStatus.OK);

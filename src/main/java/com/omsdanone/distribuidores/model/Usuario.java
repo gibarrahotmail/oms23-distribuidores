@@ -16,13 +16,14 @@ public class Usuario {
     private Integer m_Permisos;
     private Optional<Short> m_JefeID;
     private String m_Perfil;
+    private Byte m_CompaniaID;
 
     public Usuario ()
     { }
 
     public Usuario (Short p_UsuarioID, String p_Apellidos, String p_Nombre, String p_Cuenta, String p_Contrasenia, 
       boolean p_Activo, Byte p_PerfilID, Optional<Byte> p_SectorID, Optional<Short> p_CadenaComercialId, 
-      Optional<Integer> p_TiendaId, Integer p_Permisos, Optional<Short> p_JefeID)
+      Optional<Integer> p_TiendaId, Integer p_Permisos, Optional<Short> p_JefeID, byte p_CompaniaID)
   {
     m_UsuarioID = p_UsuarioID;
     m_Apellidos = p_Apellidos;
@@ -36,6 +37,7 @@ public class Usuario {
     m_TiendaId = p_TiendaId;
     m_Permisos = p_Permisos;
     m_JefeID = p_JefeID;
+    m_CompaniaID = p_CompaniaID;
   }
 
   public Short getUsuarioID()
@@ -153,5 +155,15 @@ public class Usuario {
   public void setPerfil(String value)
   {
     this.m_Perfil = value;
+  }
+
+
+  public Byte getCompaniaID()
+  {
+    return this.m_CompaniaID;
+  }
+  public void setCompaniaID(Byte value)
+  {
+    this.m_CompaniaID = value;
   }  
 }

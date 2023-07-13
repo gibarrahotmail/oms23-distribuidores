@@ -27,10 +27,10 @@ public class UsuarioController {
   @Autowired
   UsuarioRepository usuarioRepository;
 
-  @GetMapping("/usuario/{usuarioid}/{perfilid}")
+  @GetMapping("/usuario/{usuarioid}/{perfilid}/{companiaid}")
   public ResponseEntity<List<Usuario>> getUsuarioById
-  (@PathVariable("usuarioid") Short usuarioid, @PathVariable("perfilid") Byte perfilid) {
-    List<Usuario> usuarios = usuarioRepository.findById(usuarioid, perfilid);
+  (@PathVariable("usuarioid") Short usuarioid, @PathVariable("perfilid") Byte perfilid, @PathVariable("companiaid") Byte companiaid) {
+    List<Usuario> usuarios = usuarioRepository.findById(usuarioid, perfilid, companiaid);
    
     if (usuarios != null) {
       return new ResponseEntity<>(usuarios, HttpStatus.OK);

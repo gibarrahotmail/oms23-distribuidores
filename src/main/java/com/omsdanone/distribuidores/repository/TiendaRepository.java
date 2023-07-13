@@ -21,7 +21,7 @@ public class TiendaRepository {
 
   //@Override
   @SuppressWarnings("unchecked")
-  public List<Tienda> findById(Integer tiendaid, Short cadenacomercialid) {
+  public List<Tienda> findById(Integer tiendaid, Short cadenacomercialid, Short cadenaformatoid) {
     try {
       SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
       .withProcedureName("usp_SelTienda")
@@ -30,7 +30,8 @@ public class TiendaRepository {
 
       MapSqlParameterSource inParams = new MapSqlParameterSource()
       .addValue("p_TiendaId", tiendaid)
-      .addValue("p_CadenaComercialId", cadenacomercialid);
+      .addValue("p_CadenaComercialId", cadenacomercialid)
+      .addValue("p_CadenaFormatoId", cadenaformatoid);
 
       Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
       
@@ -63,6 +64,10 @@ public class TiendaRepository {
     .addValue("p_SectorID", tienda.getSectorID())
     .addValue("p_CorteHorarioId", tienda.getCorteHorarioId())
     .addValue("p_CadenaFormatoId", tienda.getCadenaFormatoId())
+    .addValue("p_RolDePedido1", tienda.getRolDepedidoId1())
+    .addValue("p_RolDePedido2", tienda.getRolDepedidoId2())
+    .addValue("p_UnidadId1", tienda.getUnidadId1())
+    .addValue("p_UnidadId2", tienda.getUnidadId2())
     .addValue("p_UsuarioID", usuarioID);
 
     if (tienda.getTiendaId() > 0) {
@@ -102,6 +107,5 @@ public class TiendaRepository {
     );
 
   }
-
   
 }

@@ -21,7 +21,7 @@ public class UsuarioRepository {
 
   //@Override
   @SuppressWarnings("unchecked")
-  public List<Usuario> findById(Short usuarioid, Byte perfilid) {
+  public List<Usuario> findById(Short usuarioid, Byte perfilid, Byte companiaid) {
     try {
       SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
       .withProcedureName("usp_SelUsuario")
@@ -30,7 +30,8 @@ public class UsuarioRepository {
 
       MapSqlParameterSource inParams = new MapSqlParameterSource()
       .addValue("p_UsuarioID", usuarioid)
-      .addValue("p_PerfilID", perfilid);
+      .addValue("p_PerfilID", perfilid)
+      .addValue("p_CompaniaID", companiaid);
 
       Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
       
@@ -60,7 +61,8 @@ public class UsuarioRepository {
     .addValue("p_TiendaId", usuario.getTiendaId())
     .addValue("p_Permisos", usuario.getPermisos())
     .addValue("p_JefeID", usuario.getJefeID())
-    .addValue("p_UsuarioID", usuarioID);
+    .addValue("p_CompaniaID", usuario.getCompaniaID())
+    .addValue("p_UsuarioIDupd", usuarioID);
 
     if (usuario.getUsuarioID() > 0) {
       inParams.addValue("p_UsuarioID", usuario.getUsuarioID());
