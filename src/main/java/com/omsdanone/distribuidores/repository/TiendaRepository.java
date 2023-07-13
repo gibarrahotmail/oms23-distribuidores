@@ -64,8 +64,8 @@ public class TiendaRepository {
     .addValue("p_SectorID", tienda.getSectorID())
     .addValue("p_CorteHorarioId", tienda.getCorteHorarioId())
     .addValue("p_CadenaFormatoId", tienda.getCadenaFormatoId())
-    .addValue("p_RolDePedido1", tienda.getRolDepedidoId1())
-    .addValue("p_RolDePedido2", tienda.getRolDepedidoId2())
+    .addValue("p_RolDePedido1", tienda.getRolDePedidoId1())
+    .addValue("p_RolDePedido2", tienda.getRolDePedidoId2())
     .addValue("p_UnidadId1", tienda.getUnidadId1())
     .addValue("p_UnidadId2", tienda.getUnidadId2())
     .addValue("p_UsuarioID", usuarioID);
