@@ -76,7 +76,7 @@ public class TiendaRepository {
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
 
-    tienda.setTiendaId ((Integer) simpleJdbcCallResult.get("out_Id")); 
+    tienda.setTiendaId ( ( (Number) simpleJdbcCallResult.get("out_Id") ).intValue() ); 
 
     return new RepositoryResult(
       1, 

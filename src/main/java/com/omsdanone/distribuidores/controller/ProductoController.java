@@ -50,6 +50,7 @@ public class ProductoController {
   @PostMapping("/producto/{usuarioid}")
   public ResponseEntity<RepositoryResult> createProducto (@RequestBody Producto producto, @PathVariable("usuarioid") Short usuarioid) {
     try {
+      //System.out.println("Product with innovacion: " + producto.getInnovacion());
       RepositoryResult rresult = productoRepository.insert(producto, usuarioid);
          
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
