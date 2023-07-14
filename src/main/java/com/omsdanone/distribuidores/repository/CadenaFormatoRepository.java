@@ -62,7 +62,7 @@ public class CadenaFormatoRepository {
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
 
-    cadenaformato.setCadenaFormatoId ((Short) simpleJdbcCallResult.get("out_Id")); 
+    cadenaformato.setCadenaFormatoId( ( (Number) simpleJdbcCallResult.get("out_Id") ).shortValue() ); 
 
     return new RepositoryResult(
       1, 

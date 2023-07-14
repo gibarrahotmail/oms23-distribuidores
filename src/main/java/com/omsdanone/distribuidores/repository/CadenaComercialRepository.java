@@ -59,7 +59,7 @@ public class CadenaComercialRepository {
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
 
-    cadenacomercial.setCadenaComercialId ((Short) simpleJdbcCallResult.get("out_Id")); 
+    cadenacomercial.setCadenaComercialId ( ( (Number) simpleJdbcCallResult.get("out_Id") ).shortValue() ); 
 
     return new RepositoryResult(
       1, 

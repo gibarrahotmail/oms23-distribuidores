@@ -60,7 +60,7 @@ public class MarcaRepository {  // implements IMarca
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
 
-    marca.setMarcaID ( (byte)( (Number) simpleJdbcCallResult.get("out_Id") ).shortValue() ); 
+    marca.setMarcaID( (byte)( (Number) simpleJdbcCallResult.get("out_Id") ).shortValue() ); 
 
     return new RepositoryResult(
       1, 
