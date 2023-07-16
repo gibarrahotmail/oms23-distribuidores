@@ -32,7 +32,7 @@ public class SubMarcaController {
   @GetMapping("/submarca/{submarcaid}/{marcaid}/{tiendaid}")
   public ResponseEntity<List<SubMarca>> getSubMarcaById
   (@PathVariable("submarcaid") Short submarcaid, @PathVariable("marcaid") Byte marcaid,
-  @PathVariable("tienaid") int tiendaid) {
+  @PathVariable("tiendaid") int tiendaid) {
     List<SubMarca> submarcas = submarcaRepository.findById(submarcaid, marcaid, tiendaid);
    
     if (submarcas != null) {
