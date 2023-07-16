@@ -29,10 +29,11 @@ public class SubMarcaController {
   @Autowired
   SubMarcaRepository submarcaRepository;
 
-  @GetMapping("/submarca/{submarcaid}/{marcaid}")
+  @GetMapping("/submarca/{submarcaid}/{marcaid}/{tiendaid}")
   public ResponseEntity<List<SubMarca>> getSubMarcaById
-  (@PathVariable("submarcaid") Short submarcaid, @PathVariable("marcaid") Byte marcaid) {
-    List<SubMarca> submarcas = submarcaRepository.findById(submarcaid, marcaid);
+  (@PathVariable("submarcaid") Short submarcaid, @PathVariable("marcaid") Byte marcaid,
+  @PathVariable("tienaid") int tiendaid) {
+    List<SubMarca> submarcas = submarcaRepository.findById(submarcaid, marcaid, tiendaid);
    
     if (submarcas != null) {
       return new ResponseEntity<>(submarcas, HttpStatus.OK);

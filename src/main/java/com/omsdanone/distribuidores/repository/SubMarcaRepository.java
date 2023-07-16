@@ -21,7 +21,7 @@ public class SubMarcaRepository {  // implements ISubMarca
 
   //@Override
   @SuppressWarnings("unchecked")
-  public List<SubMarca> findById(Short submarcaid, Byte marcaid) {
+  public List<SubMarca> findById(Short submarcaid, Byte marcaid, int tiendaid) {
     try {
       SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
       .withProcedureName("usp_SelSubMarca")
@@ -30,7 +30,8 @@ public class SubMarcaRepository {  // implements ISubMarca
 
       MapSqlParameterSource inParams = new MapSqlParameterSource()
       .addValue("p_SubMarcaID", submarcaid)
-      .addValue("p_MarcaID", marcaid);
+      .addValue("p_MarcaID", marcaid)
+      .addValue("p_TiendaID", tiendaid);
 
       Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
       
