@@ -53,7 +53,8 @@ public class Tienda_ProductoRepository {
     .addValue("p_FechaActivacion", tienda_producto.getFechaActivacion())
     //.addValue("p_FechaDesactivacion", tienda_producto.getFechaDesactivacion())
     .addValue("p_UsuarioID", usuarioID)
-    .addValue("p_SubMarcaID", tienda_producto.getSubMarcaID());
+    .addValue("p_SubMarcaID", tienda_producto.getSubMarcaID())
+    .addValue("p_BarCode", tienda_producto.getSKU());
 
     //if ( > 0) {
     //  inParams
