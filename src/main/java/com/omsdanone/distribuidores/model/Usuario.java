@@ -17,6 +17,7 @@ public class Usuario {
     private Optional<Short> m_JefeID;
     private String m_Perfil;
     private Byte m_CompaniaID;
+    private Integer m_Cantidad;
 
     public Usuario ()
     { }
@@ -165,5 +166,15 @@ public class Usuario {
   public void setCompaniaID(Byte value)
   {
     this.m_CompaniaID = value;
+  }  
+
+  
+  public Integer getCantidad()
+  {
+    return this.m_Cantidad;
+  }
+  public void setCantidad(Integer value)
+  {
+    this.m_Cantidad = value;
   }  
 }

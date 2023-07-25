@@ -65,7 +65,9 @@ public class UsuarioController {
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {
       System.out.println(e);
-      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+
+      return new ResponseEntity<>(new RepositoryResult(500, e.getMessage(), 0, Long.valueOf("0")), 
+        HttpStatus.INTERNAL_SERVER_ERROR);
     }
   } 
 }
