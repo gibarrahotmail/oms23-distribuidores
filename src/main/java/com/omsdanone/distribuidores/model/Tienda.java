@@ -23,6 +23,7 @@ public class Tienda {
   private Short m_RolDePedidoId2;
   private Byte m_UnidadId1;
   private Byte m_UnidadId2;
+  private Integer m_Cantidad;
 
   public Tienda ()
   { }
@@ -251,4 +252,12 @@ public class Tienda {
     this.m_UnidadId2 = value;
   }  
 
+  public Integer getCantidad()
+  {
+    return this.m_Cantidad;
+  }
+  public void setCantidad(Integer value)
+  {
+    this.m_Cantidad = value;
+  }   
 }
