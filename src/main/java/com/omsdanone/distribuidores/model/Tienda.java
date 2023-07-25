@@ -23,7 +23,8 @@ public class Tienda {
   private Short m_RolDePedidoId2;
   private Byte m_UnidadId1;
   private Byte m_UnidadId2;
-  private Integer m_Cantidad;
+  private Integer m_CantidadUsr;
+  private Integer m_CantidadProd;
 
   public Tienda ()
   { }
@@ -252,12 +253,21 @@ public class Tienda {
     this.m_UnidadId2 = value;
   }  
 
-  public Integer getCantidad()
+  public Integer getCantidadUsr()
   {
-    return this.m_Cantidad;
+    return this.m_CantidadUsr;
   }
-  public void setCantidad(Integer value)
+  public void setCantidadUsr(Integer value)
   {
-    this.m_Cantidad = value;
+    this.m_CantidadUsr = value;
+  }   
+  
+  public Integer getCantidadProd()
+  {
+    return this.m_CantidadProd;
+  }
+  public void setCantidadProd(Integer value)
+  {
+    this.m_CantidadProd = value;
   }   
 }
