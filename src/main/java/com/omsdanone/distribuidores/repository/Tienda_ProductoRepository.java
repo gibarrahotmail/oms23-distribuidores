@@ -41,7 +41,7 @@ public class Tienda_ProductoRepository {
   }
 
   //@Override
-  public RepositoryResult insert(Tienda_Producto tienda_producto, Short usuarioID) {
+  public RepositoryResult insert(Tienda_Producto tienda_producto, Short cadenaformatoid, Short usuarioID) {
     String uspName = "usp_InsTienda_Producto";  //( == 0 ? "usp_InsTienda_Producto" : "usp_UpdTienda_Producto");
 
     SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
@@ -54,7 +54,8 @@ public class Tienda_ProductoRepository {
     //.addValue("p_FechaDesactivacion", tienda_producto.getFechaDesactivacion())
     .addValue("p_UsuarioID", usuarioID)
     .addValue("p_SubMarcaID", tienda_producto.getSubMarcaID())
-    .addValue("p_BarCode", tienda_producto.getSKU());
+    .addValue("p_BarCode", tienda_producto.getSKU())
+    .addValue("p_CadenaFormatoID", cadenaformatoid);
 
     //if ( > 0) {
     //  inParams

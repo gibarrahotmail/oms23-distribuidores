@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.omsdanone.distribuidores.model.RepositoryResult;
@@ -43,9 +44,9 @@ public class Tienda_ProductoController {
 
   @PostMapping("/tienda_producto/{usuarioid}")
   public ResponseEntity<RepositoryResult> createTienda_Producto (@RequestBody Tienda_Producto tienda_producto, 
-  @PathVariable("usuarioid") Short usuarioid) {
+  @PathVariable("usuarioid") Short usuarioid, @RequestParam("cadenaformatoid") Short cadenaformatoid) {
     try {
-      RepositoryResult rresult = tienda_productoRepository.insert(tienda_producto, usuarioid);
+      RepositoryResult rresult = tienda_productoRepository.insert(tienda_producto, cadenaformatoid, usuarioid);
          
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {
