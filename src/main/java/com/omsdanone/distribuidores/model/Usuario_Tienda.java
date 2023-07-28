@@ -7,6 +7,7 @@ public class Usuario_Tienda {
   private String m_Tienda;
   private boolean m_TiendaActiva;
   private boolean m_UsuarioActivo;
+  private Short m_CadenaFormatoId;
 
   public Usuario_Tienda ()
   { }
@@ -71,4 +72,14 @@ public class Usuario_Tienda {
   {
     this.m_UsuarioActivo = value;
   }  
+
+  public Short getCadenaFormatoId()
+  {
+    return this.m_CadenaFormatoId;
+  }
+  public void setCadenaFormatoId(Short value)
+  {
+    this.m_CadenaFormatoId = value;
+  }
+
 }
