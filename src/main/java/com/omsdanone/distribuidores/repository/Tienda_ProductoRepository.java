@@ -74,7 +74,7 @@ public class Tienda_ProductoRepository {
   }
 
   //@Override
-  public RepositoryResult deleteById(Integer tiendaid, Short productoID, Short usuarioID, Short submarcaID) {
+  public RepositoryResult deleteById(Integer tiendaid, Short productoID, Short usuarioID, Short submarcaID, Short cadenaformatoid) {
     SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
     .withProcedureName("usp_DelTienda_Producto");
 
@@ -82,7 +82,8 @@ public class Tienda_ProductoRepository {
     .addValue("p_TiendaId", tiendaid)
     .addValue("p_ProductoID", productoID)    
     .addValue("p_UsuarioID", usuarioID)
-    .addValue("p_SubMarcaID", submarcaID);
+    .addValue("p_SubMarcaID", submarcaID)
+    .addValue("p_CadenaFormatoID", cadenaformatoid);
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
 

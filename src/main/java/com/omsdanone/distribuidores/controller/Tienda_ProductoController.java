@@ -58,12 +58,12 @@ public class Tienda_ProductoController {
   }
 
 
-  @DeleteMapping("/tienda_producto/{tiendaid}/{productoid}/{usuarioid}/{submarcaid}")
+  @DeleteMapping("/tienda_producto/{tiendaid}/{productoid}/{usuarioid}/{submarcaid}/{cadenaformatoid}")
   public ResponseEntity<RepositoryResult> deletetienda_producto(@PathVariable("tiendaid") Integer tiendaid, 
   @PathVariable("productoid") Short productoid, @PathVariable("usuarioid") Short usuarioid, 
-  @PathVariable("submarcaid") Short submarcaid) {
+  @PathVariable("submarcaid") Short submarcaid, @PathVariable("cadenaformatoid") Short cadenaformatoid) {
     try {
-      RepositoryResult rresult = tienda_productoRepository.deleteById(tiendaid, productoid, usuarioid, submarcaid);
+      RepositoryResult rresult = tienda_productoRepository.deleteById(tiendaid, productoid, usuarioid, submarcaid, cadenaformatoid);
 
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {
