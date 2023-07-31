@@ -1,5 +1,4 @@
 package com.omsdanone.distribuidores.repository;
-
 import java.util.List;
 import java.util.Map;
 
@@ -12,33 +11,28 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
 import com.omsdanone.distribuidores.model.RepositoryResult;
-import com.omsdanone.distribuidores.model.Usuario_Tienda;
+import com.omsdanone.distribuidores.model.Distribuidor_Producto;
 
 @Repository
-
-public class Usuario_TiendaRepository {
+public class Distribuidor_ProductoRepository {
   @Autowired
   private JdbcTemplate jdbcTemplate;
 
   //@Override
   @SuppressWarnings("unchecked")
-  public List<Usuario_Tienda> findById(Short usuarioid, Integer tiendaid, boolean tiendasSinUsuario, 
-    boolean usuariosSinTienda) {
+  public List<Distribuidor_Producto> findById(Short distribuidorid) {
     try {
       SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-      .withProcedureName("usp_SelUsuario_Tienda")
-      .returningResultSet("usuario_tiendas", 
-        BeanPropertyRowMapper.newInstance(Usuario_Tienda.class));
+      .withProcedureName("usp_SelDistribuidor_Producto")
+      .returningResultSet("distribuidor_productos", 
+        BeanPropertyRowMapper.newInstance(Distribuidor_Producto.class));
 
       MapSqlParameterSource inParams = new MapSqlParameterSource()
-      .addValue("p_UsuarioId", usuarioid)
-      .addValue("p_TiendaId", tiendaid)
-      .addValue("p_TiendasSinUsuario", tiendasSinUsuario)
-      .addValue("p_UsuariosSinTienda", usuariosSinTienda);
+      .addValue("p_DistribuidorID",distribuidorid );
 
       Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
       
-      return (List<Usuario_Tienda>) simpleJdbcCallResult.get("usuario_tiendas");
+      return (List<Distribuidor_Producto>) simpleJdbcCallResult.get("distribuidor_productos");
     } 
     catch (IncorrectResultSizeDataAccessException e) {
       return null;
@@ -46,44 +40,44 @@ public class Usuario_TiendaRepository {
   }
 
   //@Override
-  public RepositoryResult insert(Usuario_Tienda usuario_tienda, Short cadenaformatoid, Short usuarioIDupd) {
-    String uspName = "usp_InsUsuario_Tienda"; // ( == 0 ? "usp_InsUsuario_Tienda" : "usp_UpdUsuario_Tienda");
+  public RepositoryResult insert(Distribuidor_Producto distribuidor_producto, Short usuarioID, Short submarcaid) {
+    String uspName = "usp_InsDistribuidor_Producto";  //( == 0 ? "usp_InsDistribuidor_Producto" : "usp_UpdDistribuidor_Producto");
 
     SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
     .withProcedureName(uspName);
 
     MapSqlParameterSource inParams = new MapSqlParameterSource()
-    .addValue("p_UsuarioId", usuario_tienda.getUsuarioId())
-    .addValue("p_TiendaId", usuario_tienda.getTiendaId())
-    .addValue("p_CadenaFormatoId", cadenaformatoid)
-    .addValue("p_UsuarioIDupd", usuarioIDupd);
+    .addValue("p_DistribuidorID", distribuidor_producto.getDistribuidorID())
+    .addValue("p_ProductoID", distribuidor_producto.getProductoID())
+    .addValue("p_UsuarioID", usuarioID)
+    .addValue("p_SubMarcaID", submarcaid);
 
-    //if ( > 0) {
-    //  inParams
-    //}
+    /*if ( > 0) {
+      inParams
+    } */
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
 
-    //usuario_tienda.setUsuario( (void) simpleJdbcCallResult.get("out_Id")); 
+    distribuidor_producto.setProductoID ( ( (Number) simpleJdbcCallResult.get("out_Id") ).shortValue() ); 
 
     return new RepositoryResult(
       1, 
       "OK!", 
       (Integer) simpleJdbcCallResult.get("#update-count-1"), 
-      usuario_tienda.getUsuarioId().longValue() 
+      distribuidor_producto.getProductoID().longValue() 
     );
   }
 
   //@Override
-  public RepositoryResult deleteById(Short usuarioid, Integer tiendaid, Short cadenaformatoid, Short usuarioIDupd) {
+  public RepositoryResult deleteById(Short distribuidorid, Short productoid, Short usuarioID, Short submarcaid) {
     SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-    .withProcedureName("usp_DelUsuario_Tienda");
+    .withProcedureName("usp_DelDistribuidor_Producto");
 
     MapSqlParameterSource inParams = new MapSqlParameterSource()
-    .addValue("p_UsuarioId", usuarioid)
-    .addValue("p_TiendaId", tiendaid)
-    .addValue("p_UsuarioIDupd", usuarioIDupd)
-    .addValue("p_CadenaFormatoId", cadenaformatoid);
+    .addValue("p_DistribuidorID", distribuidorid)
+    .addValue("p_ProductoID", productoid)
+    .addValue("p_UsuarioID", usuarioID)
+    .addValue("p_SubMarcaID", submarcaid);
 
     Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
 
@@ -97,6 +91,5 @@ public class Usuario_TiendaRepository {
     );
 
   }
-
   
 }
