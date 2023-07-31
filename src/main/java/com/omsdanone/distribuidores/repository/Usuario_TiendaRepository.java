@@ -55,6 +55,7 @@ public class Usuario_TiendaRepository {
     MapSqlParameterSource inParams = new MapSqlParameterSource()
     .addValue("p_UsuarioId", usuario_tienda.getUsuarioId())
     .addValue("p_TiendaId", usuario_tienda.getTiendaId())
+    .addValue("p_Codigo", usuario_tienda.getTienda())
     .addValue("p_CadenaFormatoId", cadenaformatoid)
     .addValue("p_UsuarioIDupd", usuarioIDupd);
 
