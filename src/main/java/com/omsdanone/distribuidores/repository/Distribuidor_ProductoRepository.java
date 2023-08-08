@@ -40,7 +40,7 @@ public class Distribuidor_ProductoRepository {
   }
 
   //@Override
-  public RepositoryResult insert(Distribuidor_Producto distribuidor_producto, Short usuarioID, Short submarcaid) {
+  public RepositoryResult insert(Distribuidor_Producto distribuidor_producto, Short usuarioID) {
     String uspName = "usp_InsDistribuidor_Producto";  //( == 0 ? "usp_InsDistribuidor_Producto" : "usp_UpdDistribuidor_Producto");
 
     SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
@@ -50,7 +50,8 @@ public class Distribuidor_ProductoRepository {
     .addValue("p_DistribuidorID", distribuidor_producto.getDistribuidorID())
     .addValue("p_ProductoID", distribuidor_producto.getProductoID())
     .addValue("p_UsuarioID", usuarioID)
-    .addValue("p_SubMarcaID", submarcaid);
+    .addValue("p_SubMarcaID", distribuidor_producto.getSubMarcaID())
+    .addValue("p_SKU", distribuidor_producto.getSKU());
 
     /*if ( > 0) {
       inParams

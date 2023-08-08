@@ -43,12 +43,11 @@ public class Distribuidor_ProductoController {
   }
 
 
-  @PostMapping("/distribuidor_producto/{usuarioid}/{submarcaid}")
+  @PostMapping("/distribuidor_producto/{usuarioid}")
   public ResponseEntity<RepositoryResult> createDistribuidor_Producto 
-  (@RequestBody Distribuidor_Producto distribuidor_producto, @PathVariable("usuarioid") Short usuarioid,
-  @PathVariable("submarcaid") Short submarcaid) {
+  (@RequestBody Distribuidor_Producto distribuidor_producto, @PathVariable("usuarioid") Short usuarioid) {
     try {
-      RepositoryResult rresult = distribuidor_productoRepository.insert(distribuidor_producto, usuarioid, submarcaid);
+      RepositoryResult rresult = distribuidor_productoRepository.insert(distribuidor_producto, usuarioid);
          
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {
