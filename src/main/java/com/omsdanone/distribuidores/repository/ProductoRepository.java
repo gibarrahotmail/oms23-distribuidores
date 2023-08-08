@@ -34,7 +34,7 @@ public class ProductoRepository {  // implements IProducto
       .addValue("p_ProductoID", productoid)
       .addValue("p_SubMarcaID", submarcaid)
       .addValue("p_PresentacionID", presentacionid)
-      .addValue("p_FamiliaID", (byte)familiaid)
+      .addValue("p_FamiliaID", familiaid)
       .addValue("p_SoloActivos", soloActivos);
 
       Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(inParams);
