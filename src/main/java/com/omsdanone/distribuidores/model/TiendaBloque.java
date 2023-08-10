@@ -10,6 +10,8 @@ public class TiendaBloque {
   private Optional<Date> m_FechaReverso;
   private Short m_UsuarioID;
   private String m_Usuario;
+  private String m_TipoDeRol;  
+  private Integer m_Cantidad;
 
   public TiendaBloque ()
   { }
@@ -76,5 +78,23 @@ public class TiendaBloque {
   public void setUsuario(String value)
   {
     this.m_Usuario = value;
+  }
+
+  public String getTipoDeRol()
+  {
+    return this.m_TipoDeRol;
+  }
+  public void setTipoDeRol(String value)
+  {
+    this.m_TipoDeRol = value;
+  }
+  
+  public Integer getCantidad()
+  {
+    return this.m_Cantidad;
+  }
+  public void setCantidad(Integer value)
+  {
+    this.m_Cantidad = value;
   }
 }
