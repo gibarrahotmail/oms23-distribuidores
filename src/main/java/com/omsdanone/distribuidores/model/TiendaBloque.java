@@ -9,6 +9,7 @@ public class TiendaBloque {
   private Date m_FechaCreacion;
   private Optional<Date> m_FechaReverso;
   private Short m_UsuarioID;
+  private String m_Usuario;
 
   public TiendaBloque ()
   { }
@@ -67,4 +68,13 @@ public class TiendaBloque {
     this.m_UsuarioID = value;
   }
 
+
+  public String getUsuario()
+  {
+    return this.m_Usuario;
+  }
+  public void setUsuario(String value)
+  {
+    this.m_Usuario = value;
+  }
 }
