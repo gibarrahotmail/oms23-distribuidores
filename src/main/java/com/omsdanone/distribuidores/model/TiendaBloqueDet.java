@@ -14,6 +14,8 @@ public class TiendaBloqueDet {
   
   private String m_Codigo;
   private String m_Tienda;
+  private String m_RolDePedido01;
+  private String m_RolDePedido1;
 
   public TiendaBloqueDet ()
   { }
@@ -140,4 +142,24 @@ public class TiendaBloqueDet {
   {
     this.m_Tienda = value;
   }  
+
+  
+  public String getRolDePedido01()
+  {
+    return this.m_RolDePedido01;
+  }
+  public void setRolDePedido01(String value)
+  {
+    this.m_RolDePedido01 = value;
+  }  
+
+  public String getRolDePedido1()
+  {
+    return this.m_RolDePedido1;
+  }
+  public void setRolDePedido1(String value)
+  {
+    this.m_RolDePedido1 = value;
+  }
+  
 }
