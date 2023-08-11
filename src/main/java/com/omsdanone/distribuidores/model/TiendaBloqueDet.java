@@ -138,7 +138,7 @@ public class TiendaBloqueDet {
   {
     return this.m_Tienda;
   }
-  public void setTiendaId(String value)
+  public void setTienda(String value)
   {
     this.m_Tienda = value;
   }  
