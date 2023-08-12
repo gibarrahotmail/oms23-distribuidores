@@ -59,11 +59,12 @@ public class Distribuidor_ProductoController {
   }
 
 
-  @DeleteMapping("/distribuidor_producto/{id}/{productoid}/{usuarioid}/{submarcaid}")
+  @DeleteMapping("/distribuidor_producto/{id}/{productoid}/{usuarioid}/{submarcaid}/{sku}")
   public ResponseEntity<RepositoryResult> deletedistribuidor_producto(@PathVariable("id") Short distribuidorid,
-  @PathVariable("productoid") Short productoid, @PathVariable("usuarioid") Short usuarioid, @PathVariable("submarcaid") Short submarcaid) {
+  @PathVariable("productoid") Short productoid, @PathVariable("usuarioid") Short usuarioid, 
+  @PathVariable("submarcaid") Short submarcaid, @PathVariable("sku") String sku) {
     try {
-      RepositoryResult rresult = distribuidor_productoRepository.deleteById(distribuidorid, productoid, usuarioid, submarcaid);
+      RepositoryResult rresult = distribuidor_productoRepository.deleteById(distribuidorid, productoid, usuarioid, submarcaid, sku);
 
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {

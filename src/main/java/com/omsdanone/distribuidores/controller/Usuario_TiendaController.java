@@ -62,12 +62,13 @@ public class Usuario_TiendaController {
   }
 
 
-  @DeleteMapping("/usuario_tienda/{usuarioid}/{tiendaid}/{cadenaformatoid}/{usuarioidupd}")
+  @DeleteMapping("/usuario_tienda/{usuarioid}/{tiendaid}/{cadenaformatoid}/{usuarioidupd}/{codigo}")
   public ResponseEntity<RepositoryResult> deleteusuario_tienda(@PathVariable("usuarioid") Short usuarioid, 
   @PathVariable("tiendaid") Integer tiendaid, @PathVariable("cadenaformatoid") Short cadenaformatoid, 
-  @PathVariable("usuarioidupd") Short usuarioidupd) {
+  @PathVariable("usuarioidupd") Short usuarioidupd, @PathVariable("codigo") String codigo) {
     try {
-      RepositoryResult rresult = usuario_tiendaRepository.deleteById(usuarioid, tiendaid, cadenaformatoid, usuarioidupd);
+      RepositoryResult rresult = usuario_tiendaRepository.deleteById(usuarioid, tiendaid, cadenaformatoid, usuarioidupd, 
+        codigo == "0" ? "" : codigo);
 
       return new ResponseEntity<>(rresult , HttpStatus.CREATED);
     } catch (Exception e) {
